@@ -18,7 +18,7 @@ const userSchema = new Schema<IUser>(
     roles: {
       type: String,
       enum: ["admin", "farmer", "customer"],
-      default: "customer",
+      required: true,
     },
     phone: { type: String, unique: true, sparse: true },
     isActive: { type: Boolean, default: true },
