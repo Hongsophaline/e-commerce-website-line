@@ -5,6 +5,7 @@ import express from "express";
 import connectDB from "./config/database";
 import Router from "./routes/index";
 import { setupSwagger } from "./config/swagger";
+import roleRoutes from "./routes/roleroutes";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -26,3 +27,6 @@ setupSwagger(app, Number(PORT));
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// Role API
+app.use("/api", roleRoutes);

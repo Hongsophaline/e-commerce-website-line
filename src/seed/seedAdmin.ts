@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
 import { userModel } from "../models/userModel";
-import { roleModel } from "../models/role.model";
+import { roleModel } from "../models/rolemodel";
 import { userRoleModel } from "../models/userRole.model";
 
 dotenv.config();
