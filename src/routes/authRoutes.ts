@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   registerController,
   loginController,
-  //   logoutController,
+  logoutController,
 } from "@/controller/authController";
 
 const router = Router();
@@ -84,6 +84,6 @@ router.post("/login", loginController);
  *       200:
  *         description: Logout successful
  */
-// router.post("/logout", logoutController);
+router.post("/logout", logoutController);
 
 export default router;

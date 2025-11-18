@@ -18,3 +18,7 @@ export const loginController = async (req: Request, res: Response) => {
     res.status(400).json({ message: error.message });
   }
 };
+// ✅ Add logoutController
+export const logoutController = (req: Request, res: Response) => {
+  return res.status(200).json({ message: "Logout successful" });
+};
