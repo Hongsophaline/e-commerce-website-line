@@ -39,7 +39,7 @@ export const protect = async (
 export const authorize = (...roles: string[]) => {
   return (req: Request, res: Response, next: NextFunction) => {
     const user = req.user;
-    if (!user || !roles.includes(user.role)) {
+    if (!user || !roles.includes(user.roles)) {
       return res
         .status(403)
         .json({ message: "Forbidden: insufficient rights" });
