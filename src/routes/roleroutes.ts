@@ -14,30 +14,25 @@ const router = Router();
  * /api/roles:
  *   post:
  *     summary: Create a new role
- *     tags: [Roles]
+ *     tags:
+ *       - Roles
  *     requestBody:
- *      requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        properties:
-          name:
-            type: string
-            example: "Administrator"
-          description:
-            type: string
-            example: "Updated description for the admin role"
-
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: "Admin"
  *     responses:
  *       201:
  *         description: Role created successfully
  *       400:
- *         description: Role name is missing
- *       409:
- *         description: Role already exists
+ *         description: Bad request
  */
+
 router.post("/roles", createRole);
 
 /**
