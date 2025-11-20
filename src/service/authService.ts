@@ -20,7 +20,6 @@ export const registerService = async (req: Request) => {
   const payload: tokenPayload = {
     _id: user._id.toString(),
     email: user.email,
-    roles: [user.roles as "admin" | "farmer" | "customer"], // wrap single role as array
   };
 
   const token = generateToken(payload);
@@ -38,8 +37,7 @@ export const loginService = async (req: Request) => {
 
   const payload: tokenPayload = {
     _id: user._id.toString(),
-    email: user.email,
-    roles: [user.roles as "admin" | "farmer" | "customer"], // wrap single role as array
+    email: user.email, // wrap single role as array
   };
 
   const token = generateToken(payload);

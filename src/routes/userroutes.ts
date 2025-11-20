@@ -13,7 +13,7 @@ const router = Router();
  * @swagger
  * tags:
  *   name: Users
- *   description: User management APIs
+ *   description: User management endpoints
  */
 
 /**
@@ -32,29 +32,27 @@ const router = Router();
  *               - name
  *               - email
  *               - password
- *               - roles
  *             properties:
  *               name:
  *                 type: string
- *                 example: "John Doe"
+ *                 example: John Doe
  *               email:
  *                 type: string
- *                 example: "john@example.com"
+ *                 example: john@example.com
  *               password:
  *                 type: string
- *                 example: "Password123"
- *               roles:
- *                 type: string
- *                 enum: ["admin", "farmer", "customer"]
- *                 example: "customer"
+ *                 example: Password123
  *               phone:
  *                 type: string
- *                 example: "012345678"
+ *                 example: 012345678
+ *               role:
+ *                 type: string
+ *                 example: farmer
  *     responses:
  *       201:
  *         description: User created successfully
  *       400:
- *         description: Email or phone already exists
+ *         description: Bad request / Email or phone already exists
  */
 router.post("/users", createUser);
 
@@ -67,6 +65,8 @@ router.post("/users", createUser);
  *     responses:
  *       200:
  *         description: List of users
+ *       500:
+ *         description: Internal server error
  */
 router.get("/users", getUsers);
 
@@ -74,7 +74,7 @@ router.get("/users", getUsers);
  * @swagger
  * /api/users/{id}:
  *   get:
- *     summary: Get user by ID
+ *     summary: Get a user by ID
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -82,10 +82,10 @@ router.get("/users", getUsers);
  *         required: true
  *         schema:
  *           type: string
- *         example: "691c2e4c6ef57f92ed7116a5"
+ *         description: User ID
  *     responses:
  *       200:
- *         description: User found
+ *         description: User details
  *       404:
  *         description: User not found
  */
@@ -95,7 +95,7 @@ router.get("/users/:id", getUserById);
  * @swagger
  * /api/users/{id}:
  *   put:
- *     summary: Update a user
+ *     summary: Update a user by ID
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -103,6 +103,7 @@ router.get("/users/:id", getUserById);
  *         required: true
  *         schema:
  *           type: string
+ *         description: User ID
  *     requestBody:
  *       required: true
  *       content:
@@ -116,16 +117,17 @@ router.get("/users/:id", getUserById);
  *                 type: string
  *               password:
  *                 type: string
- *               roles:
- *                 type: string
- *                 enum: ["admin", "farmer", "customer"]
  *               phone:
+ *                 type: string
+ *               roles:
  *                 type: string
  *     responses:
  *       200:
  *         description: User updated successfully
  *       400:
- *         description: Invalid data or email/phone conflict
+ *         description: Bad request
+ *       404:
+ *         description: User not found
  */
 router.put("/users/:id", updateUser);
 
@@ -133,7 +135,7 @@ router.put("/users/:id", updateUser);
  * @swagger
  * /api/users/{id}:
  *   delete:
- *     summary: Delete a user
+ *     summary: Delete a user by ID
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -141,6 +143,7 @@ router.put("/users/:id", updateUser);
  *         required: true
  *         schema:
  *           type: string
+ *         description: User ID
  *     responses:
  *       200:
  *         description: User deleted successfully

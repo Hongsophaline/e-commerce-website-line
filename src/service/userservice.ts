@@ -5,8 +5,8 @@ export const createUserService = async (data: {
   name: string;
   email: string;
   password: string;
-  roles: "admin" | "farmer" | "customer";
   phone?: string;
+  role?: string; // optional
 }) => {
   const existingUser = await userModel.findOne({
     $or: [{ email: data.email }, { phone: data.phone }],
@@ -18,6 +18,7 @@ export const createUserService = async (data: {
   const user = await userModel.create({
     ...data,
     password: hashedPassword,
+    // roles is optional → Mongoose default "farmer" will apply
   });
 
   return user;
