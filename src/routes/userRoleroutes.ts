@@ -3,7 +3,7 @@ import {
   assignRole,
   removeRole,
   getUserRoles,
-} from "@/controller/userRolecontroller";
+} from "@/controllers/userRolecontroller";
 
 const router = Router();
 

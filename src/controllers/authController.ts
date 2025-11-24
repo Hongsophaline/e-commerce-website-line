@@ -1,12 +1,14 @@
 import { Request, Response } from "express";
-import { registerService, loginService } from "@/service/authService";
+import { registerService, loginService } from "@/services/authService";
 
 export const registerController = async (req: Request, res: Response) => {
   try {
     const { user, token } = await registerService(req);
     res.status(201).json({ message: "Registration successful", user, token });
   } catch (error: any) {
-    res.status(400).json({ message: error.message });
+    console.error(error);
+    console.log("Error in registerController:", error.message);
+    res.status(500).json({ message: "Something when wrong." });
   }
 };
 

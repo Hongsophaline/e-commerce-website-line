@@ -1,4 +1,4 @@
-import { roleModel, IRole } from "@/models/rolemodel";
+import { roleModel, IRole } from "@/models/roleModel";
 import mongoose from "mongoose";
 
 export const createRoleService = async (

@@ -3,7 +3,7 @@ import {
   registerController,
   loginController,
   logoutController,
-} from "@/controller/authController";
+} from "@/controllers/authController";
 
 const router = Router();
 
@@ -20,13 +20,18 @@ const router = Router();
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - firstName
+ *               - lastName
  *               - email
  *               - password
+ *               - phone
  *             properties:
- *               name:
+ *               firstName:
  *                 type: string
  *                 example: "Sophaline"
+ *               lastName:
+ *                 type: string
+ *                 example: "Hong"
  *               email:
  *                 type: string
  *                 example: "sophaline@example.com"

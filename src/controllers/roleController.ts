@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as roleService from "@/service/roleservice";
+import * as roleService from "@/services/roleservice";
 
 const handleError = (res: Response, err: any) => {
   if (err.message.includes("not found"))

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as userRoleService from "@/service/userRoleservice";
+import * as userRoleService from "@/services/userRoleservice";
 
 export const assignRole = async (req: Request, res: Response) => {
   try {

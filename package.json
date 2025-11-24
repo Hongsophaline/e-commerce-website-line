@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed:admin": "ts-node src/seed/seedAdmin.ts",
-    "seed:all": "ts-node src/seed/seedAll.ts",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node -r tsconfig-paths/register' src/server.ts",
+    "seed:category": "ts-node -r tsconfig-paths/register src/seeds/seedCategory.ts",
+    "seed:admin": "ts-node -r tsconfig-paths/register src/seeds/seedAdmin.ts",
+    "seed:all": "ts-node -r tsconfig-paths/register src/seeds/seedAll.ts",
     "build": "tsc",
     "start": "node dist/server.js"
   },
