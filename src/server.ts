@@ -10,6 +10,7 @@ import userRoleRoutes from "./routes/userRoleroutes";
 import userRoutes from "./routes/userRoutes";
 import authRoutes from "@/routes/authRoutes";
 import productRoutes from "@/routes/productRoutes"; // <-- Add this
+import orderRoutes from "@/routes/orderRoutes"; // <-- Add this
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -27,7 +28,8 @@ app.use("/api/roles", roleRoutes);
 app.use("/api/user-roles", userRoleRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/products", productRoutes); // <-- Add product routes
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Swagger
 setupSwagger(app, Number(PORT));
